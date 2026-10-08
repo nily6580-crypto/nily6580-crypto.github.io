@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Activity 2</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .container > div {
+      flex: 1;
+      padding: 10px;
+      background-color: lightblue;
+      border: 2px solid blue;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Flexbox Activity 2</h1>
+
+  <div class="container">
+    <div>
+      I am small.
+    </div>
+
+    <div>
+      I have more content than the very small item.
+    </div>
+
+    <div>
+      I have lots of content. So much content that
+      I don't know where it is all going to go.
+      I'm glad that CSS is pretty good at dealing
+      with situations where we end up with more
+      words than expected!
+    </div>
+  </div>
+
+</body>
+</html>
