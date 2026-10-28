@@ -23,7 +23,7 @@ const places = [
 ];
 
 const problems = [
-  "we lost at football again",
+  " realized CU lost at football again",
   "its snowing outside",
   "no on laughed at my joke",
   "didnt even make it to the bars"
