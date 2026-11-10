@@ -15,7 +15,7 @@ function randomRGB() {
   return `rgb(${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)})`;
 }
 
-// Create the Ball class
+
 class Ball {
   constructor(x, y, velX, velY, color, size) {
     this.x = x;
@@ -26,7 +26,7 @@ class Ball {
     this.size = size;
   }
 
-  // Draw the ball
+  
   draw() {
     ctx.beginPath();
     ctx.fillStyle = this.color;
@@ -34,7 +34,7 @@ class Ball {
     ctx.fill();
   }
 
-  // Move the ball and bounce off walls
+  
   update() {
     if (this.x + this.size >= width) {
       this.velX = -Math.abs(this.velX);
@@ -56,7 +56,7 @@ class Ball {
     this.y += this.velY;
   }
 
-  // Change colors when balls touch
+  
   collisionDetect() {
     for (const ball of balls) {
       if (this !== ball) {
@@ -72,7 +72,7 @@ class Ball {
   }
 }
 
-// Create 25 balls
+
 const balls = [];
 
 while (balls.length < 25) {
@@ -90,7 +90,7 @@ while (balls.length < 25) {
   balls.push(ball);
 }
 
-// Animate the balls
+
 function loop() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
   ctx.fillRect(0, 0, width, height);
