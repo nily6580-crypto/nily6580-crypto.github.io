@@ -1,0 +1,101 @@
+<main id="main" class="section container marketplace">
+  <h1>ReSource Marketplace</h1>
+  <p class="section-intro">
+    List leftover building materials or find supplies for your next project.
+  </p>
+
+  <nav class="market-links" aria-label="Marketplace">
+    <a href="#sell">List materials</a>
+    <a href="#browse">Browse materials</a>
+  </nav>
+
+  <div class="market-layout">
+    <section class="card" id="sell" aria-labelledby="sell-title">
+      <h2 id="sell-title">List materials</h2>
+
+      <form id="listing-form">
+        <fieldset>
+          <legend>1. Add a photo</legend>
+          <label for="material-photo">Material photo</label>
+          <input id="material-photo" name="photo" type="file" accept="image/*">
+          <img id="photo-preview" alt="Preview of your selected photo" hidden>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Confirm listing details</legend>
+
+          <label for="material-name">Material name</label>
+          <input id="material-name" name="title" placeholder="12 sheets of drywall"
+                 maxlength="80" required>
+
+          <label for="material-quantity">Quantity</label>
+          <input id="material-quantity" name="quantity" placeholder="12 sheets"
+                 maxlength="40" required>
+
+          <label for="material-condition">Condition</label>
+          <select id="material-condition" name="condition" required>
+            <option value="">Choose a condition</option>
+            <option>New, unopened</option>
+            <option>Like new</option>
+            <option>Salvage</option>
+          </select>
+
+          <label for="material-price">Total price ($)</label>
+          <input id="material-price" name="price" type="number"
+                 min="0.01" step="0.01" required>
+
+          <label class="market-option">
+            <input name="bulk" type="checkbox">
+            Sell as a bulk lot
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Choose a handoff</legend>
+
+          <label class="market-option">
+            <input name="handoff" type="radio" value="Drop off at hub" checked>
+            Drop off at hub
+          </label>
+
+          <label class="market-option">
+            <input name="handoff" type="radio" value="Schedule pickup">
+            Schedule pickup
+          </label>
+
+          <div id="pickup-options" hidden>
+            <label for="pickup-window">Preferred pickup window</label>
+            <select id="pickup-window" name="pickupWindow" disabled>
+              <option value="">Choose a window</option>
+              <option>Tuesday, 2–4 PM</option>
+              <option>Thursday, 9–11 AM</option>
+              <option>Saturday, 10 AM–noon</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <button class="button" type="submit">Post demo listing</button>
+        <p id="listing-status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="card" id="browse" aria-labelledby="browse-title">
+      <h2 id="browse-title">Browse materials</h2>
+
+      <label for="material-search">Search materials</label>
+      <input id="material-search" type="search" placeholder="Drywall, tile, vanities…">
+
+      <label for="condition-filter">Filter listings</label>
+      <select id="condition-filter">
+        <option value="">All materials</option>
+        <option>New, unopened</option>
+        <option>Like new</option>
+        <option>Salvage</option>
+        <option>Bulk lots</option>
+      </select>
+
+      <p id="results-count" role="status"></p>
+      <ul id="material-results" class="material-results"></ul>
+    </section>
+  </div>
+</main>

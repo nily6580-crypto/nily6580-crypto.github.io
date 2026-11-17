@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReSource | Keep Materials In Motion</title>
+  <link rel="stylesheet" href="reSource.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="logo" href="reSource.html"><span>Re</span>Source</a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#prototype">Prototype</a>
+        <a href="team.html">Team</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">A building materials marketplace for Boulder</p>
+          <h1>Keep Materials<br>In Motion.</h1>
+          <p class="hero-copy">
+            Sell what’s left over from your job. Find affordable materials
+            for your next one. ReSource brings local buyers and contractors
+            together and handles pickup, storage, and quality grading.
+          </p>
+          <div class="actions">
+            <a class="button" href="#sell">List materials</a>
+            <a class="button secondary" href="#browse">Browse materials</a>
+          </div>
+        </div>
+
+        <figure class="hero-figure">
+          <img src="resource-prototype.png"
+               alt="Four phone mockups showing photo upload, listing details, handoff options, and material browsing">
+          <figcaption>
+            <a href="#prototype">Try the ReSource marketplace demo ↓</a>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="wrap section" id="about">
+      <p class="eyebrow">About ReSource</p>
+      <h2>Good materials deserve another job.</h2>
+      <p class="intro">
+        Leftover lumber, tile, and drywall still have value, but reselling
+        them takes time and coordinating pickup adds another task to the job.
+        ReSource gives contractors a way to recover some of that value and
+        helps local renovators and DIY buyers find discounted supplies.
+      </p>
+    </section>
+
+    <section class="tinted" id="services">
+      <div class="wrap section">
+        <p class="eyebrow">Services</p>
+        <h2>From one job site to the next</h2>
+
+        <div class="feature-grid">
+          <article class="card">
+            <h3>Sell your surplus</h3>
+            <p>Add a photo, set a price, and give leftover inventory a chance to sell.</p>
+          </article>
+          <article class="card">
+            <h3>Choose a handoff</h3>
+            <p>Pick a preferred pickup window or drop your materials off at the local hub.</p>
+          </article>
+          <article class="card">
+            <h3>Shop with confidence</h3>
+            <p>Check quantities, condition, and quality grades before choosing materials for your project.</p>
+          </article>
+        </div>
+
+        <p class="pricing-note">
+          <strong>Planned pricing:</strong> 15% commission on completed sales.
+          Optional seller pickup starts at $49 and varies by load size.
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap section" id="prototype">
+      <p class="eyebrow">Interactive prototype</p>
+      <h2>Try the marketplace</h2>
+      <p class="intro">
+        Post a sample listing, then find it in the buyer view. Pickup windows are for demonstration.
+      </p>
+
+      <div class="market-grid">
+        <section class="card" id="sell" aria-labelledby="sell-title">
+          <h3 id="sell-title">List materials</h3>
+
+          <form id="listing-form">
+            <label for="photo">1. Add a material photo <span>(optional)</span></label>
+            <input id="photo" type="file" accept="image/*">
+            <img class="preview" id="photo-preview" alt="Selected material photo" hidden>
+
+            <fieldset>
+              <legend>2. Confirm your listing</legend>
+
+              <label for="material">Material name</label>
+              <input id="material" name="material" placeholder="Oak flooring" maxlength="80" required>
+
+              <div class="form-row">
+                <div>
+                  <label for="quantity">Quantity</label>
+                  <input id="quantity" name="quantity" placeholder="6 boxes" maxlength="40" required>
+                </div>
+                <div>
+                  <label for="price">Total price ($)</label>
+                  <input id="price" name="price" type="number" min="0.01" step="0.01" required>
+                </div>
+              </div>
+
+              <label for="condition">Condition</label>
+              <select id="condition" name="condition" required>
+                <option value="">Select condition</option>
+                <option>New, unopened</option>
+                <option>Like new</option>
+                <option>Salvage</option>
+              </select>
+
+              <label class="checkbox">
+                <input type="checkbox" name="bulk"> Bulk lot
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>3. Choose a handoff</legend>
+              <label for="handoff">Handoff method</label>
+              <select id="handoff" name="handoff">
+                <option value="dropoff">Drop off at the Boulder hub</option>
+                <option value="pickup">Request pickup</option>
+              </select>
+
+              <div id="pickup-options" hidden>
+                <label for="pickup-window">Preferred pickup window</label>
+                <select id="pickup-window" name="pickupWindow" disabled>
+                  <option value="">Select a window</option>
+                  <option>Tuesday, 2–4 PM</option>
+                  <option>Thursday, 9–11 AM</option>
+                  <option>Saturday, 10 AM–noon</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <button class="button" type="submit">Post demo listing</button>
+            <p class="form-status" id="listing-status" role="status"></p>
+          </form>
+        </section>
+
+        <section class="card" id="browse" aria-labelledby="browse-title">
+          <h3 id="browse-title">Browse materials</h3>
+
+          <label for="search">Search inventory</label>
+          <input id="search" type="search" placeholder="Drywall, tile, vanities…">
+
+          <label for="filter">Filter inventory</label>
+          <select id="filter">
+            <option value="">All materials</option>
+            <option>New, unopened</option>
+            <option>Like new</option>
+            <option>Salvage</option>
+            <option>Bulk lots</option>
+          </select>
+
+          <p class="form-status" id="result-count" role="status"></p>
+          <ul class="listings" id="listings"></ul>
+        </section>
+      </div>
+
+      <aside class="pilot">
+        <h3>What we’re testing in Boulder</h3>
+        <p>
+          Will contractors list usable surplus if pickup is easy to arrange?
+          Will buyers use condition and grading to choose secondhand materials?
+          Our pilot aims to work with 10 contractors and complete 100 pickups
+          in the first six months.
+        </p>
+      </aside>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap section">
+        <h2>Interested in the Boulder pilot?</h2>
+        <p>
+          Tell us whether you’d like to sell surplus or buy materials,
+          what you’re working with, and where you’re located.
+        </p>
+        <!-- Replace the example address with your ReSource team email. -->
+        <a class="button light" href="mailto:resource@example.com?subject=Boulder%20pilot">
+          Email the ReSource team
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer-row">
+    <a class="logo" href="reSource.html"><span>Re</span>Source</a>
+    <p>Keep Materials In Motion</p>
+  </footer>
+
+  <script>
+    const form = document.querySelector("#listing-form");
+    const photo = document.querySelector("#photo");
+    const preview = document.querySelector("#photo-preview");
+    const handoff = document.querySelector("#handoff");
+    const pickupOptions = document.querySelector("#pickup-options");
+    const pickupWindow = document.querySelector("#pickup-window");
+    const search = document.querySelector("#search");
+    const filter = document.querySelector("#filter");
+    const listingList = document.querySelector("#listings");
+    const listingStatus = document.querySelector("#listing-status");
+    const resultCount = document.querySelector("#result-count");
+
+    const currency = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD"
+    });
+
+    const listings = [
+      {
+        material: "Drywall", quantity: "12 sheets", price: 96,
+        condition: "New, unopened", grade: "Grade A", bulk: false
+      },
+      {
+        material: "Pallet of tile", quantity: "1 pallet", price: 500,
+        condition: "Like new", grade: "Grade A", bulk: true
+      },
+      {
+        material: "Bathroom vanities", quantity: "3 vanities", price: 180,
+        condition: "Salvage", grade: "Grade B", bulk: true
+      }
+    ];
+
+    let photoUrl = "";
+
+    photo.addEventListener("change", () => {
+      if (photoUrl) URL.revokeObjectURL(photoUrl);
+
+      const file = photo.files[0];
+      photoUrl = file ? URL.createObjectURL(file) : "";
+      preview.hidden = !photoUrl;
+
+      if (photoUrl) {
+        preview.src = photoUrl;
+      } else {
+        preview.removeAttribute("src");
+      }
+    });
+
+    function updatePickup() {
+      const needsPickup = handoff.value === "pickup";
+      pickupOptions.hidden = !needsPickup;
+      pickupWindow.disabled = !needsPickup;
+      pickupWindow.required = needsPickup;
+    }
+
+    function renderListings() {
+      const query = search.value.trim().toLowerCase();
+      const matches = listings.filter((listing) => {
+        const text = `${listing.material} ${listing.quantity}`.toLowerCase();
+        const matchesFilter = filter.value === "Bulk lots"
+          ? listing.bulk
+          : !filter.value || listing.condition === filter.value;
+        return text.includes(query) && matchesFilter;
+      });
+
+      listingList.replaceChildren();
+      resultCount.textContent = `${matches.length} ${matches.length === 1 ? "listing" : "listings"}`;
+
+      if (matches.length === 0) {
+        const empty = document.createElement("li");
+        empty.textContent = "No materials match your search.";
+        listingList.append(empty);
+        return;
+      }
+
+      for (const listing of matches) {
+        const item = document.createElement("li");
+
+        if (listing.photoUrl) {
+          const image = document.createElement("img");
+          image.src = listing.photoUrl;
+          image.alt = `Photo of ${listing.material}`;
+          item.append(image);
+        }
+
+        const title = document.createElement("h4");
+        title.textContent = listing.material;
+
+        const details = document.createElement("p");
+        details.textContent = `${listing.quantity} · ${listing.condition} · ${listing.grade}`;
+
+        const price = document.createElement("strong");
+        price.textContent = currency.format(listing.price);
+
+        item.append(title, details, price);
+        listingList.append(item);
+      }
+    }
+
+    handoff.addEventListener("change", updatePickup);
+    search.addEventListener("input", renderListings);
+    filter.addEventListener("change", renderListings);
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const data = new FormData(form);
+      const material = data.get("material").trim();
+      const quantity = data.get("quantity").trim();
+
+      if (!material || !quantity) {
+        listingStatus.textContent = "Enter a material name and quantity.";
+        return;
+      }
+
+      const handoffSummary = handoff.value === "pickup"
+        ? `Preferred pickup: ${pickupWindow.value}.`
+        : "Handoff selected: Boulder hub drop-off.";
+
+      listings.unshift({
+        material,
+        quantity,
+        price: Number(data.get("price")),
+        condition: data.get("condition"),
+        grade: "Pending grading",
+        bulk: data.has("bulk"),
+        handoff: handoffSummary,
+        photoUrl
+      });
+
+      photoUrl = "";
+      preview.hidden = true;
+      preview.removeAttribute("src");
+      form.reset();
+      updatePickup();
+
+      search.value = "";
+      filter.value = "";
+      renderListings();
+
+      listingStatus.textContent =
+        `${material} was added to Browse materials. ${handoffSummary}`;
+    });
+
+    updatePickup();
+    renderListings();
+  </script>
+</body>
+</html>

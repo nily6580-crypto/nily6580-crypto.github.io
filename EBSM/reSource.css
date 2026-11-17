@@ -1,0 +1,421 @@
+:root {
+  --ink: #19221c;
+  --muted: #4d5a50;
+  --green: #205631;
+  --forest: #143b27;
+  --paper: #f8f7f2;
+  --white: #ffffff;
+  --sage: #e9efe6;
+  --border: #cbd6cb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.12;
+}
+
+h2 {
+  font-size: clamp(1.85rem, 4vw, 3rem);
+  letter-spacing: -0.035em;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #97602c;
+  outline-offset: 3px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.wrap {
+  width: min(100% - 2rem, 73rem);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 1;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--white);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-row,
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1rem;
+}
+
+.logo {
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  text-decoration: none;
+}
+
+.logo span,
+.eyebrow,
+.team-role {
+  color: var(--green);
+}
+
+nav,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+}
+
+nav a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.hero {
+  padding-block: clamp(3.5rem, 9vw, 7rem);
+  background: linear-gradient(120deg, var(--paper), var(--sage));
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.eyebrow {
+  margin-bottom: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.page-title {
+  font-size: clamp(2.6rem, 6.5vw, 5.3rem);
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.hero-copy,
+.intro {
+  max-width: 42rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.actions {
+  margin-top: 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.05rem;
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
+  background: var(--green);
+  color: var(--white);
+  font: inherit;
+  font-weight: 750;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--forest);
+}
+
+.button.secondary,
+.button.light {
+  border-color: var(--border);
+  background: var(--white);
+  color: var(--forest);
+}
+
+.button.secondary:hover,
+.button.light:hover {
+  background: var(--sage);
+}
+
+.hero-figure {
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--white);
+}
+
+.hero-figure img {
+  width: 100%;
+  border-radius: 0.4rem;
+}
+
+.hero-figure figcaption {
+  margin-top: 0.7rem;
+  color: var(--green);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.tinted,
+.pilot {
+  background: var(--sage);
+}
+
+.feature-grid,
+.market-grid,
+.team-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.market-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.team-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card {
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--white);
+}
+
+.card p,
+.pilot p {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.pricing-note {
+  margin-top: 1.25rem;
+}
+
+label,
+legend {
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+label span {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+input:not([type="checkbox"]),
+select {
+  width: 100%;
+  min-width: 0;
+  margin-top: 0.3rem;
+  padding: 0.6rem;
+  border: 1px solid #849386;
+  border-radius: 0.35rem;
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 1rem 0;
+  padding: 0 0.9rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.45rem;
+}
+
+legend {
+  padding-inline: 0.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox input {
+  accent-color: var(--green);
+}
+
+.preview,
+.listings img {
+  width: 100%;
+  max-height: 11rem;
+  margin-block: 0.65rem;
+  border-radius: 0.35rem;
+  object-fit: contain;
+}
+
+.form-status {
+  min-height: 1.5em;
+  font-size: 0.9rem;
+}
+
+.form-status:empty {
+  min-height: 0;
+  margin: 0;
+}
+
+.listings {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listings li {
+  padding: 0.85rem;
+  border-radius: 0.45rem;
+  background: var(--sage);
+}
+
+.listings strong {
+  color: var(--green);
+}
+
+.pilot {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
+
+.contact {
+  background: var(--forest);
+  color: var(--white);
+}
+
+.contact p {
+  max-width: 40rem;
+  margin-block: 0.75rem 1.25rem;
+}
+
+.portrait {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  place-items: center;
+  margin-bottom: 1rem;
+  border-radius: 0.45rem;
+  background: var(--sage);
+  color: var(--green);
+  font-size: 2rem;
+  font-weight: 800;
+  object-fit: cover;
+}
+
+.team-grid h2 {
+  font-size: 1.3rem;
+  letter-spacing: normal;
+}
+
+.card .team-role {
+  color: var(--green);
+  font-weight: 700;
+}
+
+@media (max-width: 850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .feature-grid,
+  .market-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
